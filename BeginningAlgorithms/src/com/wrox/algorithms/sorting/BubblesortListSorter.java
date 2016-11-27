@@ -17,16 +17,17 @@ public class BubblesortListSorter<T> implements ListSorter<T> {
 	@Override
 	public List<T> sort(List<T> list) {
 		assert list != null : "list cannot be null";
-		boolean flag = false;
+		
 		for(int i = 1; i < list.size(); i ++){
+			boolean flag = false;
 			for (int j = 0; j < list.size() - i; j++) {
 				if(this.comparator.compare(list.get(j), list.get(j + 1)) > 0){
 					swap(list, j);
 					flag = true;
-				}
-				if(!flag){
-					break;
-				}
+				}				
+			}
+			if(!flag){
+				break;
 			}
 		}
 		return list;
