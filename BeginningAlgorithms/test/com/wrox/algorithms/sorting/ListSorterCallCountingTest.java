@@ -72,14 +72,55 @@ public class ListSorterCallCountingTest extends TestCase {
 	public void testAverageCaseSelectionSort(){
 		new SelectionSortListSorter<>(this.comparator).sort(randomArrayList);
 		reportCalls(this.comparator.getCallCount());
+	}	
+	
+	public void testWorstCaseShellSort(){
+		new ShellsortListSorter<>(this.comparator).sort(reverseArrayList);
+		reportCalls(this.comparator.getCallCount());
 	}
 	
+	public void testWorstCaseQuickSort(){
+		new QuicksortListSorter<>(this.comparator).sort(reverseArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
 	
+	public void testWorstCaseMergeSort(){
+		new MergesortListSorter<>(this.comparator).sort(reverseArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
+	
+	public void testBestCaseShellSort(){
+		new ShellsortListSorter<>(this.comparator).sort(sortedArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
+	
+	public void testBestCaseQuickSort(){
+		new QuicksortListSorter<>(this.comparator).sort(sortedArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
+	
+	public void testBestCaseMergeSort(){
+		new MergesortListSorter<>(this.comparator).sort(sortedArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
+	
+	public void testAverageCaseShellSort(){
+		new ShellsortListSorter<>(this.comparator).sort(randomArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
+	
+	public void testAverageCaseQuickSort(){
+		new QuicksortListSorter<>(this.comparator).sort(randomArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
+	
+	public void testAverageCaseMergeSort(){
+		new MergesortListSorter<>(this.comparator).sort(randomArrayList);
+		reportCalls(this.comparator.getCallCount());
+	}
 	
 	private void reportCalls(int callCount) {
 		System.out.println(getName() + ": " + callCount + " calls");
 	}
-	
-	
 
 }
