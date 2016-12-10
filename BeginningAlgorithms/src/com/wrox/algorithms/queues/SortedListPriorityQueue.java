@@ -5,7 +5,7 @@ import java.util.Comparator;
 import com.wrox.algorithms.lists.LinkedList;
 import com.wrox.algorithms.lists.List;
 
-public class SortedListPriorityQueue<T> implements Queue<T> {
+public class SortedListPriorityQueue<T> implements PriorityQueue<T> {
 	
 	private final List<T> list;
 	private final Comparator<T> comparator;
@@ -21,7 +21,7 @@ public class SortedListPriorityQueue<T> implements Queue<T> {
 	public void enqueue(T value) {
 		// TODO Auto-generated method stub
 		int index = this.list.size();
-		while(index > 0 && comparator.compare(list.get(index - 1), value) > 0){
+		while(index > 0 && comparator.compare(value, list.get(index - 1)) < 0){
 			index --;
 		}
 		this.list.insert(index, value);

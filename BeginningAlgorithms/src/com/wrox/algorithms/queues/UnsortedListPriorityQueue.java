@@ -5,7 +5,7 @@ import java.util.Comparator;
 import com.wrox.algorithms.lists.LinkedList;
 import com.wrox.algorithms.lists.List;
 
-public class UnsortedListPriorityQueue<T> implements Queue<T> {
+public class UnsortedListPriorityQueue<T> implements PriorityQueue<T> {
 	
 	private final List<T> list;
 	private final Comparator<T> comparator;
