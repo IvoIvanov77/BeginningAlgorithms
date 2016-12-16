@@ -136,5 +136,10 @@ public class NodeTest extends TestCase{
 		assertFalse(i.equals(null));
 		assertFalse(f.equals(d));
 	}
+	
+	public void testIsLeaf(){
+		
+	
+	}
 		
 }

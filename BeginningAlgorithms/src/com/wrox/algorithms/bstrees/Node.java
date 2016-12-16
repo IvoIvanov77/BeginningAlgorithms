@@ -155,6 +155,22 @@ public class Node<T> {
 				|| getRightChild() != null && getRightChild().equals(other);
 	}
 	
+	protected boolean isLeaf(){
+		return this.leftChild == null && this.rightChild == null;
+	}
+	
+	protected boolean hasTwoChildren(){
+		return this.leftChild != null && this.rightChild != null;
+	}
+	
+	protected Node<T> getChild(){
+		if(this.leftChild != null){
+			return this.leftChild;
+		}else{
+			return this.rightChild;
+		}
+	}
+	
 		
 
 }
