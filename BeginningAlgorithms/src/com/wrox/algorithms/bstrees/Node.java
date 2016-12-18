@@ -171,6 +171,41 @@ public class Node<T> {
 		}
 	}
 	
-		
+	protected Node<T> recursiveMin(Node<T> node){
+		if(node.leftChild == null){
+			return node;
+		}
+		return recursiveMin(node.leftChild);
+	}
+	
+	public Node<T> recursiveMinimum(){
+		return recursiveMin(this);
+	}
+	
+	
+	public int getSizeRecurcively(){
+		return recursiveSize(this);
+	}
+	
+	public int height(){
+		return recursiveHeight(this);
+	}
+	
+	private int recursiveSize(Node<T> node){
+		if(node == null){
+			return 0;
+		}
+		int size = 1 +  recursiveSize(node.leftChild) + recursiveSize(node.rightChild);
+		return size;
+	}
+	
+	private int recursiveHeight(Node<T> node){
+		if(node == null){
+			return 0;
+		}
+		int left = 1 + recursiveHeight(node.leftChild);
+		int right = 1 + recursiveHeight(node.rightChild);
+		return  left > right ? left : right;
+	}
 
 }

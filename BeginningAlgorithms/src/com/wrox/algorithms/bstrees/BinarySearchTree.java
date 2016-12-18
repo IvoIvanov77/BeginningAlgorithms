@@ -2,6 +2,8 @@ package com.wrox.algorithms.bstrees;
 
 import java.util.Comparator;
 
+import com.wrox.algorithms.lists.List;
+
 public class BinarySearchTree<T> {
 	
 	private final Comparator<T> comparator;
@@ -74,6 +76,25 @@ public class BinarySearchTree<T> {
 		}
 		return current;
 	}
+	public Node<T> recursiveSearch(T value){
+		assert value != null : "value can’t be null";
+		return searchRecursive(root, value);
+	}
+	
+	private Node<T> searchRecursive(Node<T> start, T value){
+		if(start == null){
+			return null;
+		}
+		if(start.getValue() == value){
+			return start;
+		}		
+		if(comparator.compare(value, start.getValue()) < 0){
+			return searchRecursive(start.getLeftChild(), value);
+		}else {
+			return searchRecursive(start.getRightChild(), value);
+		}
+		
+	}
 //	❑ No children (a leaf), in which case you can simply remove it.
 //	❑ One child (either left or right), in which case you can replace the deleted node with its child.
 //	❑ Two children, in which case you swap the node with its successor and try again with either case
@@ -92,7 +113,7 @@ public class BinarySearchTree<T> {
 			toDelete.setValue(value);
 		}
 		Node<T> replacement = toDelete.getChild();
-		if(replacement != null){
+		if(replacement != null){ 
 			replacement.setParent(toDelete.getParent());
 		}
 		if(toDelete == this.root){
@@ -104,6 +125,73 @@ public class BinarySearchTree<T> {
 		}		
 		return toDelete;
 	}
+	
+	public void printInOrder(){
+		Node<T> node = this.root.minimum();
+		while(node != null){
+			System.out.print(node);
+			node = node.successor();
+		}
+		System.out.println();
+	}
+	
+	public void printRecursiveInOrder(){
+		recursiveInOrder(root.minimum());
+		System.out.println();
+	}
+//	I, D, A, F, H, L, K, M, P.
+	public void printPreOrder(){
+		recursivePreOrder(root);
+		System.out.println();
+	}
+//	A, H, F, D, K, P, M, L, I.
+	public void printPostOrder(){
+		recursivePostOrder(root);
+		System.out.println();
+	}
+	
+	private void recursiveInOrder(Node<T> start){
+		if(start == null){
+			return;
+		}
+		System.out.print(start);
+		recursiveInOrder(start.successor());		
+	}
+	
+	private void recursivePreOrder(Node<T> start){
+		if(start == null){
+			return;
+		}
+		System.out.print(start);		
+		recursivePreOrder(start.getLeftChild());
+		recursivePreOrder(start.getRightChild());
+	}
+	
+	private void recursivePostOrder(Node<T> start){
+		if(start == null){
+			return;
+		}
+		recursivePostOrder(start.getLeftChild());
+		recursivePostOrder(start.getRightChild());
+		System.out.print(start);
+	}
+	
+	public void insertFromSotrtedList(List<T> list){
+		insertRecurcively(list, 0, list.size() - 1);
+	}
+	
+	private void insertRecurcively(List<T> list, int start, int end){
+		if(start > end){
+			return;
+		}
+		int midle = start + (end - start) / 2;
+		insert(list.get(midle));
+		insertRecurcively(list, start, midle - 1);
+		insertRecurcively(list, midle + 1, end);
+	}
+	
+
+
 	
 	
 //	public void setRoot(Node<T> i) {

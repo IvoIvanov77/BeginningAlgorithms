@@ -42,6 +42,18 @@ public class NodeTest extends TestCase{
 		assertSame(p, p.minimum());
 	}
 	
+	public void testRecursiveMinimum() {
+		assertSame(a, a.recursiveMinimum());
+		assertSame(a, d.recursiveMinimum());
+		assertSame(f, f.recursiveMinimum());
+		assertSame(h, h.recursiveMinimum());
+		assertSame(a, i.recursiveMinimum());
+		assertSame(k, k.recursiveMinimum());
+		assertSame(k, l.recursiveMinimum());
+		assertSame(m, m.recursiveMinimum());
+		assertSame(p, p.recursiveMinimum());
+	}
+	
 	public void testMaximum() {
 		assertSame(a, a.maximum());
 		assertSame(h, d.maximum());
@@ -111,6 +123,30 @@ public class NodeTest extends TestCase{
 		assertEquals(4, l.size());
 		assertEquals(2, m.size());
 		assertEquals(1, p.size());
+	}
+	
+	public void testRecurciveSize() {
+		assertEquals(1, a.getSizeRecurcively());
+		assertEquals(4, d.getSizeRecurcively());
+		assertEquals(2, f.getSizeRecurcively());
+		assertEquals(1, h.getSizeRecurcively());
+ 		assertEquals(1, k.getSizeRecurcively());
+		assertEquals(4, l.getSizeRecurcively());
+		assertEquals(2, m.getSizeRecurcively());
+		assertEquals(1, p.getSizeRecurcively());
+		assertEquals(9, i.getSizeRecurcively());
+	}
+	
+	public void testHeight() {
+		assertEquals(1, a.height());
+		assertEquals(3, d.height());
+		assertEquals(2, f.height());
+		assertEquals(1, h.height());
+ 		assertEquals(1, k.height());
+		assertEquals(3, l.height());
+		assertEquals(2, m.height());
+		assertEquals(1, p.height());
+		assertEquals(4, i.height());
 	}
 	
 	public void testEquals() {

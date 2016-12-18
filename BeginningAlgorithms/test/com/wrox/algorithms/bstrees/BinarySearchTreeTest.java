@@ -61,7 +61,20 @@ public class BinarySearchTreeTest extends TestCase {
 		assertEquals(m, tree.search(m.getValue()));
 		assertEquals(p, tree.search(p.getValue()));
 		assertNull(tree.search("UNKNOWN"));
-		}
+	}
+	
+	public void testRecursiveSearch() {
+		assertEquals(a, tree.recursiveSearch(a.getValue()));
+		assertEquals(d, tree.recursiveSearch(d.getValue()));
+		assertEquals(f, tree.recursiveSearch(f.getValue()));
+		assertEquals(h, tree.recursiveSearch(h.getValue()));
+		assertEquals(i, tree.recursiveSearch(i.getValue()));
+		assertEquals(k, tree.recursiveSearch(k.getValue()));
+		assertEquals(l, tree.recursiveSearch(l.getValue()));
+		assertEquals(m, tree.recursiveSearch(m.getValue()));
+		assertEquals(p, tree.recursiveSearch(p.getValue()));
+		assertNull(tree.recursiveSearch("UNKNOWN"));
+	}
 
 	public void testDeleteLeafNode() {
 		Node<String> deleted = tree.delete(h.getValue());
@@ -95,6 +108,26 @@ public class BinarySearchTreeTest extends TestCase {
 			assertNotNull(deleted);
 			assertEquals(key, deleted.getValue());
 		}
+	}
+	
+	public void testPrintInOrder(){
+		System.out.println("Iterative in-order: ");
+		tree.printInOrder();
+	}
+	
+	public void testRecursivePrintInOrder(){
+		System.out.println("Recursive in-order: ");
+		tree.printRecursiveInOrder();
+	}
+	
+	public void testPreOrder(){
+		System.out.println("Pre-order: ");
+		tree.printPreOrder();
+	}
+	
+	public void testPostOrder(){
+		System.out.println("Post-order: ");
+		tree.printPostOrder();
 	}
 }
 
