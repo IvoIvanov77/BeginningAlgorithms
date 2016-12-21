@@ -8,7 +8,7 @@ public class LinearProbingHashtable<T> implements Hashtable<T> {
 	public LinearProbingHashtable(int capacity) {
 		// TODO Auto-generated constructor stub
 		assert capacity > 0 : "initialCapacity can’t be < 1";
-		this.values = new Object[capacity];
+		this.values = new Object[SimplePrimeNumberGenerator.INSTANCE.generate(capacity)];
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class LinearProbingHashtable<T> implements Hashtable<T> {
 	private int indexFor(T value, int start, int end) {
 		// TODO Auto-generated method stub
 		for (int i = start; i < end; i++) {
-			if(this.values[i] == null || this.values[i].equals(value)){
+			if(this.values[i] == null || value.equals(this.values[i])){
 				return i;
 			}
 		}
@@ -96,9 +96,10 @@ public class LinearProbingHashtable<T> implements Hashtable<T> {
 	@SuppressWarnings("unchecked")
 	private void resize() {
 		// TODO Auto-generated method stub
-		LinearProbingHashtable<T> copy = new LinearProbingHashtable<>(this.values.length * 2);
+		int capacity = this.values.length * 2;
+		LinearProbingHashtable<T> copy = new LinearProbingHashtable<>(capacity);
 		for (int i = 0; i < values.length; i++) {
-			if(values[i] != null){
+			if(!values[i].equals(null)){
 				copy.add((T) values[i]);
 			}
 		}

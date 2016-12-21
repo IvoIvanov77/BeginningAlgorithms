@@ -16,7 +16,8 @@ public class BucketingHashtable<T> implements Hashtable<T> {
 		assert loadFactor > 0 : "loadFactor can’t be <= 0";
 		
 		this.loadFactor = loadFactor;
-		this.buckets = new List[capacity];
+		this.buckets = new List[SimplePrimeNumberGenerator.INSTANCE.generate(capacity)];
+//		System.out.println(this.buckets.length);
 		
 	}
 
@@ -58,8 +59,8 @@ public class BucketingHashtable<T> implements Hashtable<T> {
 	@SuppressWarnings("unchecked")
 	private void resize() {
 		// TODO Auto-generated method stub
-		BucketingHashtable<T> copy = new BucketingHashtable<>(this.buckets.length * 2,
-				loadFactor);
+		int capacity = this.buckets.length * 2;
+		BucketingHashtable<T> copy = new BucketingHashtable<>(capacity,	loadFactor);
 		for (int i = 0; i < buckets.length; i++) {
 			if(this.buckets[i] != null){
 				copy.addAll(this.buckets[i].iterator());

@@ -5,7 +5,7 @@ public class ReverseIterator<T> implements Iterator<T>{
 	
 	private final Iterator<T> iterator;
 	
-	public ReverseIterator(ArrayIterator<T> iterator){
+	public ReverseIterator(Iterator<T> iterator){
 		this.iterator = iterator;
 	}
 

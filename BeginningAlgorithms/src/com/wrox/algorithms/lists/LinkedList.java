@@ -265,9 +265,6 @@ public class LinkedList<T> implements List<T> {
 				throw new IteratorOutOfBoundsException();
 			}
 			return current.getValue();
-		}
-		
-	}
-
-	
+		}		
+	}	
 }
