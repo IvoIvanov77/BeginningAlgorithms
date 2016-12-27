@@ -5,11 +5,11 @@ import com.wrox.algorithms.iteration.Iterator;
 
 public class EmptyList<T> implements List<T> {
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
-		return EmptyIterator.INSTANCE;
+		return new EmptyIterator<>();
 	}
 
 	@Override

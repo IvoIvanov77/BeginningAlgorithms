@@ -2,12 +2,7 @@ package com.wrox.algorithms.iteration;
 
 public class EmptyIterator<T> implements Iterator<T>{
 	
-	@SuppressWarnings("rawtypes")
-	public static  final EmptyIterator INSTANCE = new EmptyIterator<>();
 	
-	private EmptyIterator() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public void first() {
