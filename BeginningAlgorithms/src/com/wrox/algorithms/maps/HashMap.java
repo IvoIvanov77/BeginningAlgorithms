@@ -68,8 +68,9 @@ public class HashMap<K, V> implements Map<K, V> {
 		if(bucket == null){
 			return null;
 		}
+		int sizeBefore = bucket.size();
 		V value = bucket.delete(key);
-		if(value != null){
+		if(bucket.size() < sizeBefore){
 			this.size --;
 		}
 		return value;
@@ -78,7 +79,8 @@ public class HashMap<K, V> implements Map<K, V> {
 	@Override
 	public boolean contains(K key) {
 		// TODO Auto-generated method stub
-		return get(key) != null;
+		ListMap<K, V> bucket = bucketFor(key);
+		return bucket != null && bucket.contains(key);
 	}
 
 	@Override

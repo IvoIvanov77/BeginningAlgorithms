@@ -83,7 +83,7 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 	@Override
 	public boolean contains(K key) {
 		// TODO Auto-generated method stub
-		return get(key) != null;
+		return search(key) != null;
 	}
 
 	@Override
