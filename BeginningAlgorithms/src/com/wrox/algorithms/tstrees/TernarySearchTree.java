@@ -79,7 +79,7 @@ public class TernarySearchTree {
 		// TODO Auto-generated method stub
 		assert word != null : "word can’t be null";
 		assert word.length() > 0 : "word can’t be empty";
-		Node node = search(this.root, word, 0);
+		Node node = iterativeSearch(this.root, word, 0);		
 		return node != null && node.isEndOfWord();
 	}
 
@@ -190,6 +190,39 @@ public class TernarySearchTree {
 		if(c == WILDCART || c > node.getChar()){
 			patternMatch(node.getLarger(), pattern, index, words);
 		}
+	}
+	
+	private Node iterativeSearch(Node node, CharSequence word, int index) {
+		// TODO Auto-generated method stub
+		assert word != null : "word can’t be null";			
+//		int index = 0;
+//		char c;
+//		Node next = null;
+//		while(node != null && index < word.length()){
+//			next = node;
+//			c = word.charAt(index);
+//			if(c == node.getChar()){
+//				node = node.getChild();
+//				index ++;			
+//			}else{
+//				node = c < node.getChar() ? node.getSmaller() : node.getLarger();
+//			}
+//			
+//		}
+		while (node != null) {
+			char c = word.charAt(index);
+			if (c == node.getChar()) {
+				if (index + 1 < word.length()) {
+					node = node.getChild();
+					index ++;
+				} else {
+					break;
+				}
+			} else {
+				node = c < node.getChar() ? node.getSmaller() : node.getLarger();
+				}
+		}		
+		return node;
 	}
 
 }
