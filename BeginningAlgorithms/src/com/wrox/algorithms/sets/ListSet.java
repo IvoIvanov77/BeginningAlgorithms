@@ -53,4 +53,11 @@ public class ListSet<T> implements Set<T> {
 		return this.values.isEmpty();
 	}
 
+	@Override
+	public String toString() {
+		return this.values.toString();
+	}
+	
+	
+
 }
