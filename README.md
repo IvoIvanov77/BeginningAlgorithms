@@ -1,5 +1,5 @@
 # BeginningAlgorithms
-Exercises from book "Beginning algorithms"
+Exercises from "Beginning algorithms" book
 
 ![beginning algorithms 2006 -001](https://user-images.githubusercontent.com/16088420/36677596-41ff172c-1b17-11e8-9907-176a6d04d530.jpg)
 
