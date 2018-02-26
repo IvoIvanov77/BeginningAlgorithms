@@ -1,7 +1,8 @@
 # BeginningAlgorithms
 Exercises from book "Beginning algorithms"
 
-![beginning algorithms 2006 -001](https://user-images.githubusercontent.com/16088420/36662091-f6cde1ce-1ae5-11e8-9309-8e2e725224aa.jpg)
+![beginning algorithms 2006 -001](https://user-images.githubusercontent.com/16088420/36677596-41ff172c-1b17-11e8-9907-176a6d04d530.jpg)
+
 
 #### Chapter 1: Getting Started 
 - Defining Algorithms 
